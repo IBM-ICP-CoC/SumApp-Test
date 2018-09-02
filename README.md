@@ -1,2 +1,3 @@
 # SumApp-Test
-Test project for SumApp ci/cd demo
+
+Selenium based functional test of SumApp
