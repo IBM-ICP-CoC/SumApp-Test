@@ -34,7 +34,7 @@ podTemplate(label: label,
 		stage('test') {
 			container('selenium') {
 		      	withCredentials([usernamePassword(credentialsId: 'github-id', usernameVariable: 'USERNAME', passwordVariable: 'TOKEN')]) {
-					sh "java -Dwebdriver.chrome.driver=/usr/bin/chromedriver -jar target/sumapp-test-1.0.0-jar-with-dependencies.jar -s ${hostUrl} -r ${runs} -p ${gitRepo} -u ${USERNAME} -t ${TOKEN}"				}
+					sh "java -Dwebdriver.chrome.driver=/usr/bin/chromedriver -jar target/sumapp-test-1.0.0-jar-with-dependencies.jar -s ${hostUrl} -r ${runs} -p ${gitHubRepo} -u ${USERNAME} -t ${TOKEN}"				}
 			}
 		}
 	}
