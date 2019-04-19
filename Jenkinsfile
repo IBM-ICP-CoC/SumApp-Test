@@ -1,3 +1,15 @@
+/*
+
+This pipeline script requires the following parameters to be set:
+
+src     : the URL of the source (assumes it is a public project)
+hostUrl : the URL of the SumApp host
+runs    : the number of runs to try
+gitRepo : the gitHub repository to report teh results to
+
+It also expects there to be a Jenkins credential github-id used to access GitHub with (to write a new issue).
+
+*/
 def label = "mypod-${UUID.randomUUID().toString()}"
 podTemplate(label: label,
 	containers: [
@@ -10,7 +22,7 @@ podTemplate(label: label,
 	node(label) {
 		
 		stage('Get Source') {
-		  	git "https://github.com/IBM-ICP-CoC/SumApp-Test.git"
+			git "${src}"
 		}
 		  
 		def props = readProperties  file:'pipeline.properties'
