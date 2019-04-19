@@ -25,11 +25,6 @@ podTemplate(label: label,
 			git "${src}"
 		}
 		  
-		def props = readProperties  file:'pipeline.properties'
-		def hostUrl = props['hostUrl']
-		def runs = props['runs']
-		def gitRepo = props['gitRepo']
-		  
 		stage('Build Maven project') {
 			container('maven') {
 				sh "mvn -B clean package"
